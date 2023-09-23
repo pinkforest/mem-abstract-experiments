@@ -4,9 +4,10 @@
 
 Some utilities to make it easier / portable memory ? maybe. let's see.
 
-| crate                  | description           |
-| :---                   | :---                  |
-| [mem-lock-portable]    | Provides `MemLocking` |
+| crate                  | description                  |
+| :---                   | :---                         |
+| [mem-lock-portable]    | Provides `MemLocking`        |
+| [secret-key]           | Experiments with `SecretKey` |
 
 ## License
 
