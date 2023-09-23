@@ -4,10 +4,11 @@
 
 Some utilities to make it easier / portable memory ? maybe. let's see.
 
-| crate                  | description                  |
-| :---                   | :---                         |
-| [mem-lock-portable]    | Provides `MemLocking`        |
-| [secret-key]           | Experiments with `SecretKey` |
+| crate                  | description                          |
+| :---                   | :---                                 |
+| [mem-lock-portable]    | Provides `MemLocking`                |
+| [secret-key]           | Experiments with `SecretKey`         |
+| [permissioned-pages]   | Experiments with `PermissionedPages` |
 
 ## License
 
@@ -22,3 +23,4 @@ Unless you explicitly state otherwise, any contribution intentionally submitted 
 
 [mem-lock-portable]: https://github.com/pinkforest/mem-abstract-experiments/tree/main/mem-lock-portable
 [secret-key]: https://github.com/pinkforest/mem-abstract-experiments/tree/main-secret-key
+[permissioned-pages]: https://github.com/pinkforest/mem-abstract-experiments/tree/permissioned-pages
