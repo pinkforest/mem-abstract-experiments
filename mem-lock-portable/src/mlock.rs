@@ -1,6 +1,6 @@
 //! Memory locking abstraction
 
-// TODO: DOC
+/// TODO: DOC
 pub trait MemLockable {
     /// TODO: DOC
     unsafe fn lock<T: Sized>(_t: &T);
