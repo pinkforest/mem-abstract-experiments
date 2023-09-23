@@ -53,7 +53,7 @@ jobs:
     - run: cargo -Z minimal-versions check --no-default-features
       # Now check that `cargo build` works with respect to the oldest possible
       # deps and the stated MSRV
-    - uses: dtolnay/rust-toolchain@1.60.0
+    - uses: dtolnay/rust-toolchain@1.80.0
     - run: cargo build --locked
 
 #  bench:
