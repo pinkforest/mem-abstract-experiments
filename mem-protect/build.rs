@@ -48,7 +48,6 @@ static ERR_MSG_NO_TARGET_FAMILY: &str =
 enum BuildEffects {
     Strict,
     Silent,
-    #[default]
     WarnAndContinue,
 }
 
