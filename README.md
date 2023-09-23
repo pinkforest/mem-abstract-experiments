@@ -8,7 +8,13 @@ Some utilities to make it easier / portable memory ? maybe. let's see.
 | :---                   | :---                                 |
 | [mem-lock-portable]    | Provides `MemLocking`                |
 | [secret-key]           | Experiments with `SecretKey`         |
+
+Vendored fork crates are used for experimental purposes with intent to upstream later
+
+| crate                  | description                          |
+| :---                   | :---                                 |
 | [permissioned-pages]   | Experiments with `PermissionedPages` |
+| [fork-aligners]        | Experiments with `ForkedAligners`    |
 
 ## License
 
@@ -24,3 +30,4 @@ Unless you explicitly state otherwise, any contribution intentionally submitted 
 [mem-lock-portable]: https://github.com/pinkforest/mem-abstract-experiments/tree/main/mem-lock-portable
 [secret-key]: https://github.com/pinkforest/mem-abstract-experiments/tree/main-secret-key
 [permissioned-pages]: https://github.com/pinkforest/mem-abstract-experiments/tree/permissioned-pages
+[fork-aligners]: https://github.com/pinkforest/mem-abstract-experiments/tree/fork-aligners
