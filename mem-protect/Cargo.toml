@@ -3,7 +3,16 @@ name = "mem-protect"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# TODO: Is there no way to reflect target.cfg().dependencies from build.rs ? :(
+# TODO: It would be great to leverage this list for target discovery
+#       https://github.com/rust-lang/libc/blob/main/Cargo.toml#L21
+
+# TODO: Did musl provide mlock_xx ?
+[target.'cfg(unix)'.dependencies]
+libc = { version = "0.2", default-features = false }
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", default-features = false, features = ["memoryapi"] }
 
 [build-dependencies]
 platforms = "3.1.2"
