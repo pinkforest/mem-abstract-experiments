@@ -57,7 +57,7 @@ impl MemLockableSlice for MemLocking {
     fn unlock_slice<T: Sized>(m: &[T]) {
         let size = mem::size_of_val(m);
         let ptr = m.as_ptr() as *mut libc::c_void;
-        
+
         // SAFETY: TODO
         unsafe {
             libc::munlock(ptr, size);
