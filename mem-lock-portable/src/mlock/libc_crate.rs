@@ -79,30 +79,40 @@ mod tests {
     #[test]
     fn test_lock_u8() {
         let a: u8 = 0;
-        unsafe { MemLocking::lock(&a); }
+        unsafe {
+            MemLocking::lock(&a);
+        }
     }
 
     #[test]
     fn test_lock_unit() {
         let a = ();
         assert_eq!(0, mem::size_of_val(&a));
-        unsafe { MemLocking::lock(&a); }
+        unsafe {
+            MemLocking::lock(&a);
+        }
     }
 
     #[test]
     fn test_unlock_u8() {
         let a: u8 = 0;
-        unsafe { MemLocking::unlock(&a); }
+        unsafe {
+            MemLocking::unlock(&a);
+        }
     }
 
     #[test]
     fn test_lock_slice() {
         let a: [u8; 2] = [0, 0];
-        unsafe { MemLocking::lock_slice(&a); }
+        unsafe {
+            MemLocking::lock_slice(&a);
+        }
     }
     #[test]
     fn test_unlock_slice() {
         let a: [u8; 2] = [0, 0];
-        unsafe { MemLocking::unlock_slice(&a); }
+        unsafe {
+            MemLocking::unlock_slice(&a);
+        }
     }
 }
