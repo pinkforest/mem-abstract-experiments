@@ -7,7 +7,7 @@ edition = "2021"
 # TODO: It would be great to leverage this list for target discovery
 #       https://github.com/rust-lang/libc/blob/main/Cargo.toml#L21
 
-# TODO: Did musl provide mlock_xx ?
+# In libc crate we trust .. or not :D
 [target.'cfg(unix)'.dependencies]
 libc = { version = "0.2", default-features = false }
 
@@ -16,3 +16,8 @@ winapi = { version = "0.3", default-features = false, features = ["memoryapi"] }
 
 [build-dependencies]
 platforms = "3.1.2"
+
+[features]
+default = []
+std = []
+mlock = []

@@ -46,24 +46,8 @@ pub trait MemLockableSlice {
 //------------------------------------------------------------------------
 // Select implementation to which to abstract and expose over
 //------------------------------------------------------------------------
-#[cfg(mem_protect_methods = "libc_mlock")]
-mod libc_mlock;
-#[cfg(mem_protect_methods = "libc_mlock")]
-pub use libc_mlock::*;
 
-#[cfg(mem_protect_methods = "winapi_mlock")]
-mod winapi_mlock;
-#[cfg(mem_protect_methods = "winapi_mlock")]
-pub use winapi_mlock::*;
-
-// TODO: check if mem_protect_build_effects = "strict" and compile_error in case this is hit
-#[cfg(not(all(
-    mem_protect_methods = "libc_mlock",
-    mem_protect_methods = "winapi_mlock"
-)))]
-mod dummy_mlock;
-#[cfg(not(all(
-    mem_protect_methods = "libc_mlock",
-    mem_protect_methods = "winapi_mlock"
-)))]
-pub use dummy_mlock::*;
+#[cfg(feature = "mlock")]
+mod mlock;
+#[cfg(feature = "mlock")]
+pub use mlock::*;

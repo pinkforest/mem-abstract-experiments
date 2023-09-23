@@ -7,7 +7,7 @@ use core::mem;
 struct MemLocking;
 
 impl MemLockable for MemLocking {
-    fn lock<T: Sized>(m: &T) {
+    unsafe fn lock<T: Sized>(m: &T) {
         let ptr: *const T = m;
         let size = mem::size_of::<T>();
 
@@ -21,7 +21,7 @@ impl MemLockable for MemLocking {
             libc::madvise(ptr as *mut libc::c_void, size, libc::MADV_DONTDUMP);
         }
     }
-    fn unlock<T: Sized>(m: &T) {
+    unsafe fn unlock<T: Sized>(m: &T) {
         let ptr: *const T = m;
         let size = mem::size_of::<T>();
 
@@ -38,7 +38,7 @@ impl MemLockable for MemLocking {
 }
 
 impl MemLockableSlice for MemLocking {
-    fn lock_slice<T: Sized>(m: &[T]) {
+    unsafe fn lock_slice<T: Sized>(m: &[T]) {
         let size = mem::size_of_val(m);
         let ptr = m.as_ptr() as *mut libc::c_void;
 
@@ -54,7 +54,7 @@ impl MemLockableSlice for MemLocking {
             libc::madvise(ptr, size, libc::MADV_DONTDUMP);
         }
     }
-    fn unlock_slice<T: Sized>(m: &[T]) {
+    unsafe fn unlock_slice<T: Sized>(m: &[T]) {
         let size = mem::size_of_val(m);
         let ptr = m.as_ptr() as *mut libc::c_void;
 
@@ -79,23 +79,30 @@ mod tests {
     #[test]
     fn test_lock_u8() {
         let a: u8 = 0;
-        MemLocking::lock(&a);
+        unsafe { MemLocking::lock(&a); }
+    }
+
+    #[test]
+    fn test_lock_unit() {
+        let a = ();
+        assert_eq!(0, mem::size_of_val(&a));
+        unsafe { MemLocking::lock(&a); }
     }
 
     #[test]
     fn test_unlock_u8() {
         let a: u8 = 0;
-        MemLocking::unlock(&a);
+        unsafe { MemLocking::unlock(&a); }
     }
 
     #[test]
     fn test_lock_slice() {
         let a: [u8; 2] = [0, 0];
-        MemLocking::lock_slice(&a);
+        unsafe { MemLocking::lock_slice(&a); }
     }
     #[test]
     fn test_unlock_slice() {
         let a: [u8; 2] = [0, 0];
-        MemLocking::unlock_slice(&a);
+        unsafe { MemLocking::unlock_slice(&a); }
     }
 }
