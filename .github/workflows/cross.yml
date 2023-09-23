@@ -29,7 +29,6 @@ jobs:
           - target: powerpc-unknown-linux-gnu
             rust: stable
 
-    # TODO: We only test x/ed/curve for cross as derive is platform specifics
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -39,6 +38,4 @@ jobs:
           toolchain: ${{ matrix.rust }}
           targets: ${{ matrix.target }}
       - uses: RustCrypto/actions/cross-install@master
-      - run: cross test -p curve25519-dalek --release --target ${{ matrix.target }}
-      - run: cross test -p ed25519-dalek --release --target ${{ matrix.target }}
-      - run: cross test -p x25519-dalek --release --target ${{ matrix.target }}
+      - run: cross test -p mem-protect --release --target ${{ matrix.target }}

@@ -50,11 +50,11 @@ jobs:
       # Now run `cargo +nightly -Z minimal-verisons check` in order to get a
       # Cargo.lock with the oldest possible deps
     - uses: dtolnay/rust-toolchain@nightly
-    - run: cargo -Z minimal-versions check --no-default-features --features serde
+    - run: cargo -Z minimal-versions check --no-default-features
       # Now check that `cargo build` works with respect to the oldest possible
       # deps and the stated MSRV
     - uses: dtolnay/rust-toolchain@1.60.0
-    - run: cargo build
+    - run: cargo build --locked
 
 #  bench:
 #   name: Check that benchmarks compile
