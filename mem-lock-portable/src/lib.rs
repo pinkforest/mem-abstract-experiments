@@ -21,26 +21,6 @@
     unused_qualifications
 )]
 
-// Slice can be lockable
-// Warning: Scratch .. sketching out
-// Should these be instead in some higher level crate ?
-// TODO: Do these traits make any sense ? :D
-// TODO: Can these fail ? And why
-/// TODO: DOC
-pub trait MemLockable {
-    /// TODO: DOC
-    fn lock<T: Sized>(_t: &T);
-    /// TODO: DOC
-    fn unlock<T: Sized>(_t: &T);
-}
-/// TODO: DOC
-pub trait MemLockableSlice {
-    /// TODO: DOCK
-    fn lock_slice<T: Sized>(_t: &[T]);
-    /// TODO: DOCK
-    fn unlock_slice<T: Sized>(_t: &[T]);
-}
-
 // TODO: What we should do between raw/low level vs higher level abstractions ?
 
 //------------------------------------------------------------------------
