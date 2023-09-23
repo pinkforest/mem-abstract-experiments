@@ -33,13 +33,13 @@ mod winapi_crate;
 pub use winapi_crate::*;
 
 // TODO: check if mem_protect_build_effects = "strict" and compile_error in case this is hit
-#[cfg(not(all(
-    mem_protect_methods = "libc_mlock",
-    mem_protect_methods = "winapi_mlock"
-)))]
+#[cfg(all(
+    not(mem_protect_methods = "libc_mlock"),
+    not(mem_protect_methods = "winapi_mlock")
+))]
 mod dummy;
-#[cfg(not(all(
-    mem_protect_methods = "libc_mlock",
-    mem_protect_methods = "winapi_mlock"
-)))]
+#[cfg(all(
+    not(mem_protect_methods = "libc_mlock"),
+    not(mem_protect_methods = "winapi_mlock")
+))]
 pub use dummy::*;
