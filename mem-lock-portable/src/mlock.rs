@@ -1,6 +1,7 @@
 //! Memory locking abstraction
 
 /// TODO: DOC
+#[allow(clippy::missing_safety_doc)]
 pub trait MemLockable {
     /// TODO: DOC
     unsafe fn lock<T: Sized>(_t: &T);
@@ -9,6 +10,7 @@ pub trait MemLockable {
 }
 
 /// TODO: DOC
+#[allow(clippy::missing_safety_doc)]
 pub trait MemLockableSlice {
     /// TODO: DOCK
     unsafe fn lock_slice<T: Sized>(_t: &[T]);
