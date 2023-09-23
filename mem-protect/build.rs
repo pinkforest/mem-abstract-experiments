@@ -44,7 +44,7 @@ static ERR_MSG_NO_TARGET_FAMILY: &str =
 // -------------------------------------------------------------------------
 // effects as documented at top
 // -------------------------------------------------------------------------
-#[derive(Debug, Default)]
+#[derive(Debug)]
 enum BuildEffects {
     Strict,
     Silent,
