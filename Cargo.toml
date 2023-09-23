@@ -1,3 +1,4 @@
 [workspace]
-members = ["mem-lock-portable", "secret-key", "permissioned-pages"]
+members = ["mem-lock-portable", "secret-key"]
+exclude = ["permissioned-pages", "fork-aligners"]
 resolver = "2"
