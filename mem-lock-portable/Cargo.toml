@@ -15,7 +15,7 @@ libc = { version = "0.2", default-features = false }
 winapi = { version = "0.3", default-features = false, features = ["memoryapi"] }
 
 [build-dependencies]
-platforms = "3.1.2"
+platforms = "3.2.0"
 
 [features]
 default = []
